@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-BOT_NAME = 'scrashtest'
+# BOT_NAME = 'scrashtest'
 
 SPIDER_MODULES = ['scrashtest.spiders']
 NEWSPIDER_MODULE = 'scrashtest.spiders'

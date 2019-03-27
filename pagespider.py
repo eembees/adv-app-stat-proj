@@ -1,5 +1,5 @@
 import scrapy
-
+from glob import glob
 # set some lists here for future reference
 link = 'http://karakterstatistik.stads.ku.dk/#searchText=&term=Summer-2015&block=&institute=&faculty=2694&searchingCourses=true&page=1'
 
@@ -52,23 +52,32 @@ class CourseItem(scrapy.Item):
 
 
 class PageSpider(scrapy.Spider):
-    name = 'ku_spider'
-    def __init__(self):
+    name = 'pagespider'
+    filename = 'urls/urls_HUM_Summer-2014.txt'
+    # def __init__(self):
 
+    def __init__(self, filename=None):
+        read_urls = []
+        filenames = glob('urls/*.txt')
+        for filename in filenames:
+            with open(filename, 'r') as f:
+                read_urls.append([url.replace('\n','') for url in f.readlines()])
 
-    start_urls = [
-        'http://karakterstatistik.stads.ku.dk/Histogram/NDAA09023E/Summer-2014/B4',
-    ]
+        self.start_urls = [item for sublist in read_urls for item in sublist]
+
 
     def parse(self, response):
         course = CourseItem()
 
-        course['term'] = str(response).split('/')[5]
+        course['term'] = str(response).split('/')[5].replace('>','')
         course['title'] = response.xpath('//form//h2/text()').get().replace('\r\n', '').strip()
         course['faculty'] = response.xpath('//form//table')[0].xpath('//*[contains(text(),"Fakultet")]').getall()[1]\
             .replace('\r\n', '').replace('</td>','').replace('<td>','').strip()
-        course['institute'] = response.xpath('//form//table')[0].xpath('//*[contains(text(),"Institut")]').getall()[1]\
-            .replace('\r\n', '').replace('</td>','').replace('<td>','').strip()
+        try:
+            course['institute'] = response.xpath('//form//table')[0].xpath('//*[contains(text(),"Institut")]').getall()[1]\
+                .replace('\r\n', '').replace('</td>','').replace('<td>','').strip()
+        except IndexError:
+            pass
 
         # tgrad = response.xpath('//form/table/tr[last()]/td[1]/table')
         tres = response.xpath('//form/table/tr[last()]/td[1]/table/tr/td/table')
@@ -81,3 +90,5 @@ class PageSpider(scrapy.Spider):
                 row_data[0] = 'g_{}'.format(row_data[0])
             course[row_data[0]] = row_data[1]
 
+
+        yield course
