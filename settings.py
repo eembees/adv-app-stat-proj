@@ -2,8 +2,8 @@
 
 # BOT_NAME = 'scrashtest'
 
-SPIDER_MODULES = ['scrashtest.spiders']
-NEWSPIDER_MODULE = 'scrashtest.spiders'
+# SPIDER_MODULES = ['scrashtest.spiders']
+# NEWSPIDER_MODULE = 'scrashtest.spiders'
 
 DOWNLOADER_MIDDLEWARES = {
     # Engine side
