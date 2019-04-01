@@ -9,13 +9,13 @@ cancer = load_breast_cancer()
 X = cancer.data
 y = cancer.target
 
+
 _, _, coefs = linear_model.lars_path(X, y, method='lasso', verbose=True)
 xx = np.sum(np.abs(coefs.T), axis=1)
 xx /= xx[-1]
 #
-# print(coefs[:,-1].shape)
-# exit()
-coef_indices_to_use = ind = np.argpartition(np.abs(coefs[:,-1]), -10)[-10:]
+
+coef_indices_to_use = np.argpartition(np.abs(coefs[:,-1]), -10)[-10:]
 
 for i in coef_indices_to_use:
     plt.plot(xx, coefs[i], label = cancer.feature_names[i])
