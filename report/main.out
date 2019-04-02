@@ -1,0 +1,20 @@
+\BOOKMARK [0][-]{section*.2}{LASSO or L1 regularization in linear models}{}% 2
+\BOOKMARK [1][-]{section*.1}{Abstract}{section*.2}% 1
+\BOOKMARK [1][-]{section*.3}{Introduction}{section*.2}% 3
+\BOOKMARK [1][-]{section*.4}{The LASSO}{section*.2}% 4
+\BOOKMARK [2][-]{section*.5}{General problem}{section*.4}% 5
+\BOOKMARK [2][-]{section*.6}{The LASSO objective}{section*.4}% 6
+\BOOKMARK [2][-]{section*.7}{Consequences of using a LASSO penalty}{section*.4}% 7
+\BOOKMARK [1][-]{section*.8}{Logistic Regression}{section*.2}% 8
+\BOOKMARK [2][-]{section*.9}{General form}{section*.8}% 9
+\BOOKMARK [2][-]{section*.10}{Logistic link \(sigmoid\) function}{section*.8}% 10
+\BOOKMARK [3][-]{section*.11}{Finding the optimum value of w}{section*.10}% 11
+\BOOKMARK [2][-]{section*.12}{Regularization}{section*.8}% 12
+\BOOKMARK [2][-]{section*.13}{L1 regularized Logistic Regression on South African Heart Disease dataset}{section*.8}% 13
+\BOOKMARK [1][-]{section*.14}{Copenhagen University grade statistics}{section*.2}% 14
+\BOOKMARK [2][-]{section*.15}{Scraping and retrieving data}{section*.14}% 15
+\BOOKMARK [2][-]{section*.16}{Data cleaning and removal}{section*.14}% 16
+\BOOKMARK [2][-]{section*.17}{Initial view of the data}{section*.14}% 17
+\BOOKMARK [2][-]{section*.18}{Classifying SCIENCE vs not-SCIENCE}{section*.14}% 18
+\BOOKMARK [1][-]{section*.19}{Concluding remarks}{section*.2}% 19
+\BOOKMARK [1][-]{section*.20}{References}{section*.2}% 20

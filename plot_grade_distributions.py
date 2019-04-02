@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+
 pd.set_option('display.max_columns', 20)
 from sklearn.preprocessing import MultiLabelBinarizer
 import matplotlib.pyplot as plt
@@ -70,10 +71,10 @@ faculty_dict = {
 }
 
 fac_vectorize_dict = {
-    'SUND':np.array([1,0,0,0]),
-    'SCIENCE':np.array([0,1,0,0]),
-    'SAMF':np.array([0,0,1,0]),
-    'HUM':np.array([0,0,0,1]),
+    'SUND': np.array([1, 0, 0, 0]),
+    'SCIENCE': np.array([0, 1, 0, 0]),
+    'SAMF': np.array([0, 0, 1, 0]),
+    'HUM': np.array([0, 0, 0, 1]),
 }
 
 participant_thres = 300
@@ -81,19 +82,14 @@ participant_thres = 300
 grade_cols_frac = [g.replace('g', 'p') for g in grade_cols]
 grade_cols_frac.append('p_ej_modt')
 
-
 frac_dict = dict(zip(num_cols, grade_cols_frac))
 
-
-
 # here we read the data from teh scraping
-df = pd.read_json('/Users/mag/PycharmProjects/graded_class/output.json')
+df = pd.read_json('./scraping/output.json')
 
 # add faculty code
 df['fac'] = [faculty_dict[val] for val in df.faculty]
 # df['fv'] = [fac_vectorize_dict[val] for val in df.fac]
-
-
 
 
 # remove all non numerical grade data (for example, if the course is too small for statistics, or if it is pass/fail)
@@ -111,35 +107,35 @@ df['n_students'] = df[num_cols].sum(axis=1)
 df = df[df.n_students > participant_thres]
 print(len(df))
 
-
 # get fractional values for grades
 for old_col in num_cols:
-    df[frac_dict[old_col]] = df[old_col]/df.n_students
+    df[frac_dict[old_col]] = df[old_col] / df.n_students
 
-
-
-fig, axes = plt.subplots(2,2)
+fig, axes = plt.subplots(2, 2)
 ax = axes.ravel()
 
 for i, (name, group) in enumerate(df.groupby('fac')):
     # print(group[grade_cols_frac[::-1]].mean())
     ax[i].set_title(name)
-    ax[i].bar(range(len(grade_cols_frac)),group[grade_cols_frac[::-1]].mean(),label = name, alpha=0.5, color='xkcd:dark red')
+    ax[i].bar(range(len(grade_cols_frac)),
+              group[grade_cols_frac[::-1]].mean(), yerr=group[grade_cols_frac[::-1]].std(),
+              label=name, alpha=0.5, color='xkcd:dark red')
     ax[i].set_xticks(range(len(grade_cols_frac)))
-    ax[i].set_xticklabels([s.replace('p_','').replace('ej_modt','NS') for s in grade_cols_frac[::-1] ])
+    ax[i].set_xticklabels([s.replace('p_', '').replace('ej_modt', 'NS') for s in grade_cols_frac[::-1]])
 
 fig.tight_layout()
 fig.savefig('figs/distplot.png')
 
-
 fig2, ax2 = plt.subplots()
 for i, (name, group) in enumerate(df.groupby('fac')):
-    ax2.bar(np.array(range(len(grade_cols_frac))) + 0.2*i, group[grade_cols_frac[::-1]].mean(),0.2, label=name, alpha=0.5,
-          # color='xkcd:dark red'
-            )
-ax2.set_xticks(range(len(grade_cols_frac)))
-ax2.set_xticklabels([s.replace('p_', '').replace('ej_modt', 'NS') for s in grade_cols_frac[::-1]])
-ax2.legend()
+    ax2.bar(np.array(range(len(grade_cols_frac))) + 0.2 * i, group[grade_cols_frac[::-1]].mean(), 0.2,
+            yerr=group[grade_cols_frac[::-1]].std(), label=name, alpha=0.5,
+            # color='xkcd:dark red',
+            error_kw={'alpha' : 0.5},
+    )
+    ax2.set_xticks(np.array(range(len(grade_cols_frac))) + 0.3)
+    ax2.set_xticklabels([s.replace('p_', '').replace('ej_modt', 'NS') for s in grade_cols_frac[::-1]])
+    ax2.legend(loc='upper left')
 
-fig2.tight_layout()
-fig2.savefig('figs/overlay.png', dpi=300)
+    fig2.tight_layout()
+    fig2.savefig('./figs/overlay.png', dpi=300)

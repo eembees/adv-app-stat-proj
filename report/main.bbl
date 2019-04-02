@@ -1,0 +1,88 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[noa({\natexlab{a}})]{noauthor_karakterfordeling_nodate}
+Karakterfordeling, {\natexlab{a}}.
+\newblock URL \url{http://karakterstatistik.stads.ku.dk/}.
+\newblock 2019-03-27.
+
+\bibitem[noa({\natexlab{b}})]{noauthor_scrapy_nodate}
+Scrapy 1.6 documentation — {Scrapy} 1.6.0 documentation, {\natexlab{b}}.
+\newblock URL \url{https://docs.scrapy.org/en/latest/}.
+\newblock 2019-04-02.
+
+\bibitem[noa({\natexlab{c}})]{noauthor_selenium_nodate}
+Selenium {Client} {Driver} — {Selenium} 3.14 documentation, {\natexlab{c}}.
+\newblock URL
+  \url{https://seleniumhq.github.io/selenium/docs/api/py/index.html}.
+\newblock 2019-04-02.
+
+\bibitem[Courtney and Courtney(2008)]{courtney_comments_2008}
+A.~Courtney and M.~Courtney.
+\newblock Comments {Regarding} "{On} the {Nature} of {Science}".
+\newblock \emph{arXiv:0812.4932 [physics]}, Dec. 2008.
+\newblock URL \url{http://arxiv.org/abs/0812.4932}.
+\newblock 2019-04-02.
+
+\bibitem[Efron et~al.(2004)Efron, Hastie, Johnstone, and
+  Tibshirani]{efron_least_2004}
+B.~Efron, T.~Hastie, I.~Johnstone, and R.~Tibshirani.
+\newblock Least angle regression.
+\newblock \emph{Annals of Statistics}, 32\penalty0 (2):\penalty0 407--451, Apr.
+  2004.
+\newblock ISSN 0090-5364.
+\newblock WOS:000221411000001.
+
+\bibitem[Hastie et~al.(2017)Hastie, Tibshirani, and
+  Friedman]{hastie_elements_2017}
+T.~Hastie, R.~Tibshirani, and J.~H. Friedman.
+\newblock \emph{The elements of statistical learning: data mining, inference,
+  and prediction}.
+\newblock Springer series in statistics. Springer, New York, NY, second
+  edition, corrected at 12th printing 2017 edition, 2017.
+\newblock ISBN 978-0-387-84857-0 978-0-387-84858-7.
+\newblock OCLC: 995842694.
+
+\bibitem[McKinney(2010)]{mckinney_data_2010}
+W.~McKinney.
+\newblock Data {Structures} for {Statistical} {Computing} in {Python}.
+\newblock page~6, 2010.
+
+\bibitem[Paisley(2018)]{paisley_columbiax:_2018}
+J.~Paisley.
+\newblock {ColumbiaX}: {Machine} {Learning}, Jan. 2018.
+
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
+  Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot, and Duchesnay]{pedregosa_scikit-learn:_2011}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and �.~Duchesnay.
+\newblock Scikit-learn: {Machine} {Learning} in {Python}.
+\newblock \emph{Journal of Machine Learning Research}, 12:\penalty0
+  2825−2830, Oct. 2011.
+\newblock ISSN 1533-7928.
+\newblock URL \url{http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html}.
+\newblock 2019-04-02.
+
+\bibitem[Sterling(2013)]{sterling_1001_2013}
+M.~J. Sterling.
+\newblock \emph{1001 algebra {II} practice problems for dummies}.
+\newblock --{For} dummies. For Dummies, a Wiley Brand, Hoboken, New Jersey,
+  2013.
+\newblock ISBN 978-1-118-44662-1.
+\newblock OCLC: ocn828416495.
+
+\bibitem[Tibshirani(1996)]{tibshirani_regression_1996}
+R.~Tibshirani.
+\newblock Regression shrinkage and selection via the {Lasso}.
+\newblock \emph{Journal of the Royal Statistical Society Series
+  B-Methodological}, 58\penalty0 (1):\penalty0 267--288, 1996.
+\newblock ISSN 0035-9246.
+\newblock WOS:A1996TU31400017.
+
+\end{thebibliography}

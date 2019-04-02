@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: abbrvnat.bst
+Database file #1: mainNotes.bib
+Database file #2: adv_app_stat.bib
+Warning--I'm ignoring courtney_comments_2008's extra "note" field
+--line 111 of file adv_app_stat.bib
+Warning--to sort, need author or key in noauthor_karakterfordeling_nodate
+Warning--to sort, need author or key in noauthor_selenium_nodate
+Warning--to sort, need author or key in noauthor_scrapy_nodate
+Warning--empty year in noauthor_karakterfordeling_nodate
+Warning--empty year in noauthor_scrapy_nodate
+Warning--empty year in noauthor_selenium_nodate
+Warning--empty journal in mckinney_data_2010
+You've used 11 entries,
+            2773 wiz_defined-function locations,
+            668 strings with 6674 characters,
+and the built_in function-call counts, 4801 in all, are:
+= -- 431
+> -- 277
+< -- 6
++ -- 100
+- -- 87
+* -- 394
+:= -- 725
+add.period$ -- 47
+call.type$ -- 11
+change.case$ -- 61
+chr.to.int$ -- 9
+cite$ -- 32
+duplicate$ -- 205
+empty$ -- 392
+format.name$ -- 97
+if$ -- 1009
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 9
+newline$ -- 75
+num.names$ -- 32
+pop$ -- 145
+preamble$ -- 1
+purify$ -- 51
+quote$ -- 0
+skip$ -- 151
+stack$ -- 0
+substring$ -- 110
+swap$ -- 20
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 111
+warning$ -- 7
+while$ -- 30
+width$ -- 0
+write$ -- 171
+(There were 8 warnings)
