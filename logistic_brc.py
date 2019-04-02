@@ -28,4 +28,3 @@ plt.title('LASSO Path')
 # plt.axis('tight')
 plt.legend()
 plt.show()
-

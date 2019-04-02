@@ -7,16 +7,23 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.svm import l1_min_c
 import pandas as pd
-
+import seaborn as sns
 from sklearn.model_selection import cross_val_score, train_test_split
 
-n_coefs = 5
-cs = np.logspace(-2, 0, 15)
+n_coefs = 10
+# cs = np.logspace(-3, 0, 15)
 
 # load data
-# dataset = load_breast_cancer()
+dataset = load_breast_cancer()
+names = dataset.feature_names
+names = [name for name in names if 'error' not in name]
+
+df = pd.DataFrame(dataset.data, columns=dataset.feature_names)
+print(df.head())
+
+X = df[names].values
 # X = dataset.data
-# y = dataset.target
+y = dataset.target
 
 # df = pd.read_csv("/Users/mag/PycharmProjects/graded_class/SAHeart.data.txt")
 #
@@ -27,12 +34,12 @@ cs = np.logspace(-2, 0, 15)
 # names = df.iloc[:,1:-1].keys()
 
 
-df = pd.read_csv('/Users/mag/PycharmProjects/graded_class/heart.csv')
-
-X = df.iloc[:,:-1].values
-y=df.target.values
-
-names = df.iloc[:,:-1].keys()
+# df = pd.read_csv('/Users/mag/PycharmProjects/graded_class/heart.csv')
+#
+# X = df.iloc[:,:-1].values
+# y=df.target.values
+#
+# names = df.iloc[:,:-1].keys()
 
 
 # X, y = make_classification(n_samples=1000,n_features=15, n_redundant=0, n_informative=3, random_state=1, n_clusters_per_class=1,n_classes=2)
@@ -55,9 +62,8 @@ names = df.iloc[:,:-1].keys()
 # X = np.concatenate([X, X_train_trans], axis=1)
 #
 # # add polynomial features
-X = PolynomialFeatures(degree=2, interaction_only=True).fit_transform(X)
+# X = PolynomialFeatures(degree=2, interaction_only=True).fit_transform(X)
 # # X_train_new = np.concatenate([X_train_new, X_train_poly], axis=1)
-
 
 
 # split the data
@@ -65,6 +71,8 @@ X = StandardScaler().fit_transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=0)
+
+cs = l1_min_c(X, y, loss='log') * np.logspace(0, 7, 16)
 
 
 # fig = plt.figure()
@@ -75,7 +83,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # cs = l1_min_c(X, y, loss='log') * np.logspace(0, 3, 16)
 clf = linear_model.LogisticRegression(penalty='l1', solver='saga',
-                                      tol=1e-6, #max_iter=int(1e6),
+                                      tol=1e-6, max_iter=int(1e6),
                                       warm_start=True)
 
 coefs_ = []
@@ -99,11 +107,18 @@ for i in coef_indices_to_use:
         axp.plot(np.log10(cs), coefs_[:,i], label = str(i)) #marker = 'o')
 
 axp.legend()
-figp.savefig('figs/subset_std_{}.png'.format(n_coefs))
+figp.savefig('figs/subset_brc_{}.png'.format(n_coefs))
 
 
-
-
+# g = sns.pairplot(df,
+#                  vars=names[coef_indices_to_use],
+#                  hue='target',
+#                  diag_kind='hist',
+#                  height=2,
+#                  markers='+',
+#                  plot_kws=dict(s=5, edgecolor="b", linewidth=1),
+#                  )
+# plt.show()
 
 # pipe = make_pipeline(
 #     StandardScaler(),
